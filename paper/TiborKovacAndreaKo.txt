@@ -1,0 +1,11 @@
+Monitoring Pneumatic Actuators' Behavior Using Real-World Data Set
+Tibor Kovac . Andrea Ko
+
+Abstract
+Identify, classifying states that may indicate abnormal behavior
+Signal preprocessing: Peak detection, garbage removal and down-sampling
+Ward's hierarchical clustering with multivariate Euclidean distance calculation and Kohonen self-organizing map to grouping similar pattern 
+Visual display can be monitored
+Clustered signal can create a balance set for learning
+
+Related Works
