@@ -1,8 +1,0 @@
-Condition Monitoring of Pneumatic Drive Systems Based on the AI Method Feed-forward Backpropagation Neural Network
-Monica Tiboni . Carlo Remino
-
-Abstract
-Pneumatic system using NN as classier and compares results of different sensors
-Using pressure sensors on both chamber and position sensors
-Test bench: show reliability of NN
-Works even with low-cost instrumentation
