@@ -42,4 +42,8 @@
 6. Adopted AI-Based Classifier
 
 ### Results
-- Bro comparing everything, then make heatmap/graph...
+- Bro comparing everything, then make heatmap/graph (Features, data, layers, ...)
+
+![PSD](images/TiboniReminoExp1.png)
+
+![Skew and Kurt](images/TiboniReminoExp2.png)
