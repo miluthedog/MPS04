@@ -1,4 +1,4 @@
-# Monitoring Pneumatic Actuators' Behavior Using Real-World Data Set
+# Review: Monitoring Pneumatic Actuators' Behavior Using Real-World Data Set
 - Tibor Kovac & Andrea Ko
 
 ### Abstract
@@ -13,12 +13,13 @@
     - Extract features: **Time-domain statistical analysis**, **Fourier spectral analysis** and **wavelet transformation** <paper 16>
     - Dimension reduction stategies: **principle components analysis** or **distance evalution technique** <paper 17>
     - Fault classification: Data unlabeled, unsupervised learning like **clustering** and **suport vector machine**
+![Process Flow](images/KovacKoProcessFlow.png)
 - Hybrid methods: unsupervised learning as data preprocessing for supervised learning
     - Supervised learning fits well, Unsupervised learning goal is to discover unknown classes of items by clustering <paper 24>
     - Imbalance class distribution: where significantly more intances from one class, lead to misclassify instances of less represented
     - Class imbalance: **algorithm adaptation**, **cost-sensitive learning** (classifier) and **data resampling** (balancing data)
+![Clusters](images/KovacKoClusters.png)
 - Clustering based under sampling (High accuracy) <paper 34>, **Fast-CBUS** improved computational cost <paper 30>
-
 ### Case study
 - Pattern recognition: analyzing signals from pneumatic actuator realiable, cheap and able to detect wear tear
     - (Temperature-Vibration methods) Signal are non-stationary and Fourier spectrum may introduce false alarms/missed detections <paper 35>
