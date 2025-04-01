@@ -10,7 +10,7 @@
 - Sensor fault detection <paper 1 2> and AI dealt <paper 12 13>
 - Data analysis: combination of wavelet transformation, feature extraction and classification with MLP-ANN and support vector machine
 - Main steps: Signal acquisition, feature extraction and selection, and fault classification <paper 14 15>
-    - Extract representative features: **Time-domain statistical analysis**, **Fourier spectral analysis** and **wavelet transformation** <paper 16>
+    - Extract features: **Time-domain statistical analysis**, **Fourier spectral analysis** and **wavelet transformation** <paper 16>
     - Dimension reduction stategies: **principle components analysis** or **distance evalution technique** <paper 17>
     - Fault classification: Data unlabeled, unsupervised learning like **clustering** and **suport vector machine**
 - Hybrid methods: unsupervised learning as data preprocessing for supervised learning
@@ -30,7 +30,7 @@
     - Euclidean distance to calculate dissimilarity matrix as input for clustering, 20000 signals per batch (based on computer)
     - Numbers of cluster (4) evaluated by experts
     - Clustering using fastcluster R package applying
-- Assembled_clustering: stratified sampling to reduce and balance, calculate distance matrix, cluster cycles, observe timeline of states
+- Assembled clustering: stratified sampling to reduce and balance, calculate distance matrix, cluster, observe timeline of different states
 
 - Research show the data pattern (visualized) of signal overtime (prove there's pattern at a point of time)
 - Also show the method of visualizing (KSOM)
