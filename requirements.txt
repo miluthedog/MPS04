@@ -1,0 +1,8 @@
+joblib==1.4.2
+numpy==1.26.4
+keyboard==0.13.5
+pandas==2.2.3
+scipy==1.14.1
+sounddevice==0.5.0
+sqlalchemy==2.0.40
+tensorflow==2.18.0
