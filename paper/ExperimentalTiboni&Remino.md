@@ -6,7 +6,7 @@
 - Test bench: show reliability of NN, prove model works even with low-cost instrumentation
 - (Authors comparing literally everything)
 
-### Intro
+### Introduction - Related Works
 - Condition-based maintenace: diagnostic teniques, not only to minimize failures but also reduce planned maintenance, extend component life
 - "Several publications explored the ability of NN to dectect and classify faults in pneumatic elements"
 - Neural networks as models and classifiers
