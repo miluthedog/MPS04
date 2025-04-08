@@ -11,18 +11,18 @@
 - Goal: not only increase availability but also reduce planned maintainance and extend life
 - ANN can model highly nonlinear systems. Machine considered black box
 
-- <paper 24> De Freitas 2 Networks: model (predict) and classifier (compare signal)
-- <paper 25 26> K S identified: incorrect pressure, diaphragm leakage, and vent blockage using 9 features. Feature valve respond to step command
-- <paper 27 28 29> S K detected 19 faults, reduce input size using PCA and compare to ANFIS
-- <paper 30> Benchmark of 19 faults. Control Valve, Servo, Positioner, General/External Faults
-- <paper 31> Kourd follow Freitas but errors identified based on Euclidean distance
-- <paper 32> Deng follow K S (7 features from step response of valve), 
-- <paper 33> S K reduce input with PCA
-- <paper 34 35> Prabakaran initial system similar to Kourd, then improve with KSOM adapt real-time observed
-- <paper 36> K K confirmed PCA in improving accuracy
-- <paper 37> Andrade Networks: NARX to predict state and a classifier for each faults then identify with tree
-- <paper 38> Demetgul NN to detect faults in entire system. Compared 2 method: supervised-unsupervised (11 faults from 8 signals from sensors)
-- Several authors suggested: closest neighbor interpolation, SMOTE, GANs, random oversampling and others. FEM, WPT, SVM,...
+<paper 24> De Freitas 2 Networks: model (predict) and classifier (compare signal) </br>
+<paper 25 26> K S identified: incorrect pressure, diaphragm leakage, and vent blockage using 9 features. Feature valve respond to step command </br>
+<paper 32> Deng follow K S (7 features from step response of valve) </br>
+<paper 27 28 29> S K detected 19 faults, reduce input size using PCA and compare to ANFIS </br>
+<paper 30> Benchmark of 19 faults. Control Valve, Servo, Positioner, General/External Faults </br>
+<paper 31> Kourd follow Freitas but errors identified based on Euclidean distance </br>
+<paper 33> S K reduce input with PCA </br>
+<paper 34 35> Prabakaran initial system similar to Kourd, then improve with KSOM adapt real-time observed </br>
+<paper 36> K K confirmed PCA in improving accuracy </br>
+<paper 37> Andrade Networks: NARX to predict state and a classifier for each faults then identify with tree </br>
+<paper 38> Demetgul NN to detect faults in entire system. Compared 2 method: supervised-unsupervised (11 faults from 8 signals from sensors) </br>
+- Several authors suggested: closest neighbor interpolation, SMOTE, GANs, random oversampling and others. FEM, WPT, SVM,... </br>
 
 ### Methodology
 - Method:
