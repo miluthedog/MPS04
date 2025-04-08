@@ -11,15 +11,15 @@
 - Preprocessing signals from real-world data
 - Create balance training set, predict error to raise early warning
 
-- <paper 1 2> Sensor fault detection
-- <paper 12 13> Fault prediction
-- <paper 14 15> Main steps: signal acquire, feature extract and classify
-- <paper 16> Signal extract features
-- <paper 17> Clustering-Distance evaluate
-- <paper 24> Clustering goal
-- <paper 26 27 28 29 30> Imbalance class distribution such as fault indentify, network intrusion, sentiment, fraud detect and approach
-- <paper 32 33 34> Clustering approach
-- <paper 35> Signal non-stationary
+<paper 1 2> Sensor fault detection </br>
+<paper 12 13> Fault prediction </br>
+<paper 14 15> Main steps: signal acquire, feature extract and classify </br>
+<paper 16> Signal extract features </br>
+<paper 17> Clustering-Distance evaluate </br>
+<paper 24> Clustering goal </br>
+<paper 26 27 28 29 30> Imbalance class distribution such as fault indentify, network intrusion, sentiment, fraud detect and approach </br>
+<paper 32 33 34> Clustering approach </br>
+<paper 35> Signal non-stationary </br>
 
 ### Methodology - Works
 - Hybrid methods: unsupervised learning as data preprocessing for supervised learning
