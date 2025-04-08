@@ -48,6 +48,6 @@
 - Monoaxial "body" using Z-axis signals with 150 Hz PSD and 80% data outperform Arduino sensors in classification errors
 - Statistical features "body" make less critical errors, even with less training data
 
-![Results](images/TiboniReminoExp1.png)
+![Results](images/TiboniReminoExp2.png)
 
 - Proper way to evaluate results
