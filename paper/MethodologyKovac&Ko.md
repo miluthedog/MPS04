@@ -38,7 +38,9 @@
 - Signal 0-20mV collected, down-sampling from 7.8e-5 to 1.4e-2 by interpolation, only keep operating (not idling signal) of 6-8 cycles
 - External_conditions: Mainly compressed air pressure, affect cycle time and signal amplitude. Cycle time off by 1% (Jamming, ...)
 
-- Preprocessing: Find start of cycle to split cycles, remove ideling states
+- Preprocessing: Split cycles, remove ideling states
+    - Remove ideling 
+    - Split cycles:
 - Clustering: Normalize and downsample, calculate distance matrix, cluster cycles hierarchical to a number
     - Euclidean distance to calculate dissimilarity matrix as input for clustering, 20000 signals per batch (based on computer)
     - Numbers of cluster (4) evaluated by experts
