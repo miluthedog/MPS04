@@ -6,3 +6,4 @@ scipy==1.14.1
 sounddevice==0.5.0
 sqlalchemy==2.0.40
 tensorflow==2.18.0
+matplotlib==3.9.1.post1
