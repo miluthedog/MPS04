@@ -20,6 +20,7 @@
 <paper 26 27 28 29 30> Imbalance class distribution such as fault indentify, network intrusion, sentiment, fraud detect and approach </br>
 <paper 32 33 34> Clustering approach </br>
 <paper 35> Signal non-stationary </br>
+<paper 39 40> fastcluster R package applying Ward's method </br>
 
 ### Methodology - Works
 - Hybrid methods: unsupervised learning as data preprocessing for supervised learning
@@ -38,14 +39,9 @@
 - Signal 0-20mV collected, down-sampling from 7.8e-5 to 1.4e-2 by interpolation, only keep operating (not idling signal) of 6-8 cycles
 - External_conditions: Mainly compressed air pressure, affect cycle time and signal amplitude. Cycle time off by 1% (Jamming, ...)
 
-- Preprocessing: Split cycles, remove ideling states
-    - Remove ideling 
-    - Split cycles:
-- Clustering: Normalize and downsample, calculate distance matrix, cluster cycles hierarchical to a number
-    - Euclidean distance to calculate dissimilarity matrix as input for clustering, 20000 signals per batch (based on computer)
-    - Numbers of cluster (4) evaluated by experts
-    - Clustering using fastcluster R package applying
-- Assembled clustering: stratified sampling to reduce and balance, calculate distance matrix, cluster, observe timeline of different states
+- Preprocessing: Check if data valid, find start of cycles and split
+- Clustering: Normalize and downsample, calculate distance matrix, cluster cycles hierarchical to (paper number: 4)
+- Assembled clustering: stratified sampling to reduce and balance, (cluster the same), observe timeline of different states
 
 ### Results, Conclusion
 - It works, small deflect can even can be monitoring after clustering
