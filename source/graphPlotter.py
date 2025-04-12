@@ -56,4 +56,3 @@ class Plot:
         plt.suptitle(self.title)
         plt.tight_layout()
         plt.show()
-
