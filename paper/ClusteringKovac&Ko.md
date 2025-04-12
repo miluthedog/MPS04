@@ -1,5 +1,6 @@
 # Review: Monitoring Pneumatic Actuators' Behavior Using Real-World Data Set
 - Tibor Kovac & Andrea Ko
+- Note: split cycles, clustering, asembled clustering, monitoring
 
 ### Abstract
 - Preprocessing: Peak detection, remove ideling states, down-sampling

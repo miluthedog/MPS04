@@ -17,7 +17,7 @@ class LivePlot:
         self.data = np.roll(self.data, -len(updatedData))
         self.data[-len(updatedData):] = updatedData
         self.line.set_ydata(self.data)
-    
+
     def start(self):
         self.ani = animation.FuncAnimation(plt.gcf(), lambda frame:(self.line,), interval=30, cache_frame_data=False)
         plt.show()
