@@ -1,8 +1,29 @@
 import matplotlib.pyplot as plt
-import pandas as pd
+import matplotlib.animation as animation
+import numpy as np
+
+class LivePlot:
+    def __init__(self, plotTitle=None, plotRange=441000):
+        self.data = np.zeros(plotRange)
+        self.line, = plt.plot(np.arange(plotRange), self.data)
+
+        plt.xlim(0, plotRange)
+        plt.ylim(-1, 1)
+        plt.title = plotTitle
+        plt.xlabel('ID')
+        plt.ylabel('Amplitude')
+
+    def update(self, updatedData):
+        self.data = np.roll(self.data, -len(updatedData))
+        self.data[-len(updatedData):] = updatedData
+        self.line.set_ydata(self.data)
+    
+    def start(self):
+        self.ani = animation.FuncAnimation(plt.gcf(), lambda frame:(self.line,), interval=30, cache_frame_data=False)
+        plt.show()
 
 
-class DataPlotter:
+class Plot:
     def __init__(self, title=None):
         self.title = title
 
