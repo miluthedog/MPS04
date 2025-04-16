@@ -33,6 +33,7 @@ downsample_factor = int(original_sample_rate / target_sample_rate)  # Hệ số 
 stop_event = threading.Event()
 
 
+
 # Hàm ghi dữ liệu từ cảm biến và lưu vào MySQL
 def calculate_rms(signal, window_size):
     rms_values = [

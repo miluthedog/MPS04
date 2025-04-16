@@ -1,4 +1,5 @@
 import sounddevice as sd
+import pandas as pd
 import numpy as np
 from sqlalchemy import create_engine
 from scipy.signal import resample_poly
@@ -23,7 +24,7 @@ class Collector:
         def callback(indata, frames, time, status):
             if status:
                 print(status)
-            print("hi")
+            
 
         with sd.InputStream(samplerate=44100, blocksize=1024, channels=1, callback=callback):
             input()
