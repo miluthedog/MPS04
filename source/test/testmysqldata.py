@@ -2,6 +2,9 @@ import sounddevice as sd
 import pandas as pd
 from sqlalchemy import create_engine
 
+'''
+occurs "input overflow" or lost of data upload to db at ~1700 Hz
+'''
 
 class Collector:
     def __init__(self):
@@ -12,6 +15,8 @@ class Collector:
         def callback(indata, frames, time, status):
             if status:
                 print(status)
+            #dataFrame = pd.DataFrame({"Amplitude": indata[:, 0]}) # samplerate 44100
+            #dataFrame = pd.DataFrame({"Amplitude": indata[::25, 0]}) # downsample to 1764
             dataFrame = pd.DataFrame({"Amplitude": indata[::100, 0]}) # downsample to 441
             dataFrame.to_sql("thuthap", con=self.engine, if_exists="append", index=False)
 
