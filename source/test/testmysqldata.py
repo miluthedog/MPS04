@@ -7,7 +7,7 @@ from sqlalchemy import create_engine
 occurs "input overflow" or lost of data upload to db at ~1700 Hz
 '''
 
-class Collector:
+class CollectorSQL:
     def __init__(self):
         self.engine = create_engine("mysql+pymysql://root:mps2024@localhost:3306/iot_data")
 
@@ -29,5 +29,5 @@ class Collector:
 
 
 if __name__ == "__main__":
-    data = Collector()
+    data = CollectorSQL()
     data.collect()
