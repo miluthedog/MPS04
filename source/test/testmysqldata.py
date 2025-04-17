@@ -1,5 +1,6 @@
 import sounddevice as sd
 import pandas as pd
+import keyboard
 from sqlalchemy import create_engine
 
 '''
@@ -21,7 +22,10 @@ class Collector:
             dataFrame.to_sql("thuthap", con=self.engine, if_exists="append", index=False)
 
         with sd.InputStream(samplerate=44100, channels=1, callback=callback):
-            input()
+            while True:
+                if keyboard.is_pressed('esc'):
+                    break
+                sd.sleep(100)
 
 
 if __name__ == "__main__":
