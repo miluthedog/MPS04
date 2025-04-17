@@ -10,7 +10,7 @@ class LivePlot:
         self.line, = plt.plot(np.arange(plotRange), self.data)
 
         plt.xlim(0, plotRange)
-        plt.ylim(-1, 1)
+        plt.ylim(-0.5, 0.5)
         plt.title = plotTitle
         plt.xlabel('ID')
         plt.ylabel('Amplitude')

@@ -8,8 +8,8 @@ occurs "input overflow" or lost of data upload to db at ~1700 Hz
 '''
 
 class CollectorSQL:
-    def __init__(self):
-        self.engine = create_engine("mysql+pymysql://root:mps2024@localhost:3306/iot_data")
+    def __init__(self, engine):
+        self.engine = create_engine(engine)
 
     def collect(self):
 
@@ -29,5 +29,5 @@ class CollectorSQL:
 
 
 if __name__ == "__main__":
-    data = CollectorSQL()
+    data = CollectorSQL("mysql+pymysql://root:mps2024@localhost:3306/iot_data")
     data.collect()

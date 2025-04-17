@@ -26,5 +26,5 @@ class CollectorCSV:
 
 
 if __name__ == "__main__":
-    data = CollectorCSV("test")
+    data = CollectorCSV("sample")
     data.collect()
