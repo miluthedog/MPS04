@@ -3,6 +3,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
+'''
+Signal analysis:
+Vibration appear when moving, slightly higher amplitude when accelerate
+Amplitude ~0.2 at "grip"
+Amplitude ~0.05 at "stop right trans"
+Amplitude ~0.05 at "drop"
+'''
 
 class LivePlot:
     def __init__(self, plotTitle=None, plotRange=441000):

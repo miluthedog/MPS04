@@ -17,4 +17,4 @@ class Plot:
         plt.show()
 
 
-Plot().plotdata("sample4black1")
+Plot().plotdata("bbbb1")

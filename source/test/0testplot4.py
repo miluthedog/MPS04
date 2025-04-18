@@ -22,5 +22,5 @@ class Plot:
 
 
 if __name__ == "__main__":
-    filenames = ['sample4black1', 'sample4white1', 'sampleHERRORwbwb1', 'sampleVERRORbwbw1']
+    filenames = ['bbbb1','wwww1','bbbb2','wwww2']
     Plot().plot4(filenames)

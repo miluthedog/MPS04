@@ -11,6 +11,9 @@ class Plot:
             data = pd.read_csv(f"source/data/{filename}.csv")
             plt.plot(data)
         plt.title("Test 4 signal in 1")
+
+
+        
         plt.xlabel("ID")
         plt.ylabel(data.columns[0])
         plt.show()
@@ -18,5 +21,5 @@ class Plot:
 
 if __name__ == "__main__":
 
-    filenames = ['sample4black1', 'sample4white1', 'sampleHERRORwbwb1', 'sampleVERRORbwbw1']
+    filenames = ['bbbb1','wwww1','bbbb2','wwww2']
     Plot().plot4in1(filenames)

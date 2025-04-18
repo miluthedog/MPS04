@@ -2,6 +2,10 @@ import sounddevice as sd
 import pandas as pd
 import keyboard
 
+'''
+No data loss
+4 cycles: 60000 KB of 4mil+ signal data
+'''
 
 class CollectorCSV:
     def __init__(self, filename = "Untitiled"):
