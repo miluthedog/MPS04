@@ -11,9 +11,6 @@ class Plot:
             data = pd.read_csv(f"source/data/{filename}.csv")
             plt.plot(data)
         plt.title("Test 4 signal in 1")
-
-
-        
         plt.xlabel("ID")
         plt.ylabel(data.columns[0])
         plt.show()

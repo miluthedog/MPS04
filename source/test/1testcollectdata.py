@@ -12,13 +12,13 @@ Amplitude ~0.05 at "drop"
 '''
 
 class LivePlot:
-    def __init__(self, plotTitle=None, plotRange=441000):
+    def __init__(self, plotRange):
         self.data = np.zeros(plotRange)
         self.line, = plt.plot(np.arange(plotRange), self.data)
 
         plt.xlim(0, plotRange)
         plt.ylim(-0.5, 0.5)
-        plt.title = plotTitle
+        plt.title("Live signal")
         plt.xlabel('ID')
         plt.ylabel('Amplitude')
 
@@ -33,9 +33,9 @@ class LivePlot:
 
 
 class Collector:
-    def __init__(self, plotRange):
+    def __init__(self, plotRange=441000):
         self.dataFrame = np.zeros(plotRange)
-        self.plotter = LivePlot("Real-time raw data", plotRange)
+        self.plotter = LivePlot(plotRange)
 
     def collect(self):
         def callback(indata, frames, time, status):
