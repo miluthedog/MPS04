@@ -16,7 +16,7 @@ class Plot:
             axes[i].set_ylabel(data.columns[0])
             axes[i].set_ylim(-0.5, 0.5)
 
-        plt.suptitle("Test plot 4")
+        plt.suptitle("Test 4 signal")
         plt.tight_layout()
         plt.show()
 
