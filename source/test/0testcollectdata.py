@@ -4,11 +4,8 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
 '''
-Signal analysis:
-Vibration appear when moving, slightly higher amplitude when accelerate
-Amplitude ~0.2 at "grip"
-Amplitude ~0.05 at "stop right trans"
-Amplitude ~0.05 at "drop"
+Vibration appear when moving
+Slightly higher amplitude when accelerate (start to move or stop moving)
 '''
 
 class LivePlot:
@@ -18,6 +15,7 @@ class LivePlot:
 
         plt.xlim(0, plotRange)
         plt.ylim(-0.5, 0.5)
+
         plt.title("Live signal")
         plt.xlabel('ID')
         plt.ylabel('Amplitude')
