@@ -32,9 +32,9 @@ class Plot:
             if i == 0:
                 axes[i].set_ylim(-0.05, 0.05)
             else:
-                axes[i].set_ylim(-0.0025, 0.0025)
-                axes[i].axhline(y=0.0002, color='r', alpha=0.3)
-                axes[i].axhline(y=-0.0002, color='r', alpha=0.3)
+                axes[i].set_ylim(-0.002, 0.002)
+                axes[i].axhline(y=0.00025, color='r', alpha=0.3)
+                axes[i].axhline(y=-0.00025, color='r', alpha=0.3)
             axes[i].set_title(f"Signal {start}-{end}")
             axes[i].set_xlabel("ID")
             axes[i].set_ylabel(f"Amplitude")
@@ -44,6 +44,6 @@ class Plot:
 
 
 if __name__ == "__main__":
-    filename = "E1bwbw1"
+    filename = "data"
     plotRange = [(0, 1_000_000), (50_000, 150_000), (150_000, 500_000), (500_000, 600_000)]
     Plot().plot4(filename, plotRange)

@@ -4,8 +4,7 @@ import keyboard
 from sqlalchemy import create_engine
 
 '''
-My sql "input overflow"
-Data lost  at ~1700 Hz
+Data lost at ~1700 Hz (My sql "input overflow")
 '''
 
 class CollectorSQL:

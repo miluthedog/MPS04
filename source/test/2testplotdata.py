@@ -5,7 +5,6 @@ import numpy as np
 '''
 Largest signal: Grip
 Second largest signal: Drop
-=> Split from Grip to Drop (No reasonable delay)
 '''
 
 class Plot:
