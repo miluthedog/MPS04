@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-signal = pd.read_csv(f"source/data/wwww1.csv")["Amplitude"].values
+signal = pd.read_csv(f"source/data/E1bwbw1.csv")["Amplitude"].values
 
 fs = 44100  # Hz
 
@@ -31,6 +31,7 @@ plt.plot(freqs, fft_mag, color='blue')
 plt.title("Frequency Domain (FFT)")
 plt.xlabel("Frequency (Hz)")
 plt.ylabel("Magnitude")
+plt.ylim(0, 0.2e-5)
 plt.grid(True)
 plt.tight_layout()
 plt.show()

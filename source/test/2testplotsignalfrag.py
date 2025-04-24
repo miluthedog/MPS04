@@ -4,9 +4,11 @@ import matplotlib.pyplot as plt
 
 '''
 Average cycle length ~13 sec (600000 signal at 44100 Hz)
-50000-150000: Go up 
+50000-150000: Go up
 150000-500000: Go right
 500000-600000: Go down
+
+Idle state amplitude < 0.00025 (If not apply vibration)
 '''
 
 class Plot:
@@ -27,8 +29,12 @@ class Plot:
         for i in range(4):
             start, end = plotRange[i]
             axes[i].plot(signal[start:end])
-            axes[i].set_ylim(-0.01, 0.01)
-
+            if i == 0:
+                axes[i].set_ylim(-0.05, 0.05)
+            else:
+                axes[i].set_ylim(-0.0025, 0.0025)
+                axes[i].axhline(y=0.0002, color='r', alpha=0.3)
+                axes[i].axhline(y=-0.0002, color='r', alpha=0.3)
             axes[i].set_title(f"Signal {start}-{end}")
             axes[i].set_xlabel("ID")
             axes[i].set_ylabel(f"Amplitude")
@@ -38,6 +44,6 @@ class Plot:
 
 
 if __name__ == "__main__":
-    filename = "data"
+    filename = "E1bwbw1"
     plotRange = [(0, 1_000_000), (50_000, 150_000), (150_000, 500_000), (500_000, 600_000)]
     Plot().plot4(filename, plotRange)

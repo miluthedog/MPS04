@@ -1,4 +1,4 @@
-# Personal notation for data files
+# Naming convention
 
 ### Workpiece
 - b: black, drop on slider
