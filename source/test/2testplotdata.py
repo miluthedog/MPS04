@@ -14,15 +14,16 @@ class Plot:
     def plotdata(self, filename):
         data = pd.read_csv(f"source/data/{filename}.csv")
         plt.plot(data)
-        plt.ylim(-0.5, 0.5)
+        plt.ylim(-0.2, 0.2)
 
         plt.title("Test signal")
         plt.xlabel("ID")
         plt.ylabel("Amplitude")
+        plt.grid()
         
         plt.show()
 
 
 if __name__ == "__main__":
-    filename = "data"
+    filename = "bbbb1"
     Plot().plotdata(filename)
