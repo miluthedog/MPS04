@@ -11,8 +11,11 @@
 - Vibration amplitude under a threshold but not stable (Larger for vibrate data)
 
 ### Phase 3: Collect cycle
-- Cycle: Last > 0.2 peak and first 0.03 peak
+- Cycle: Last > 0.15 peak and first 0.03 peak
 
-### Phase 4: Evaluate preprocess cycle
+### Phase 4: Evaluate cycle
+- Plot cycles
+
+### Phase 5: Preprocess
 - Remove idle states
 - Downsampling

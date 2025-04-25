@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 '''
 Workflow:
-Cycle start: Find all isolated peaks > 0.2 (choose last point)
+Cycle start: Find all isolated peaks > 0.15 (choose last point)
 Choose cycle with ID
 Cycle end: Find all isolated peaks > 0.03 (choose first point that far from its start)
 '''
@@ -14,7 +14,7 @@ class Split:
     def __init__(self):
         self.filename = "data.csv"
         self.peakDis = 10000
-        self.gripHeight = 0.2
+        self.gripHeight = 0.15
         self.dropHeight = 0.03
         self.peakID = 0
 
