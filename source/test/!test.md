@@ -13,6 +13,6 @@
 ### Phase 3: Collect cycle
 - Cycle: Last > 0.2 peak and first 0.03 peak
 
-### Phase 4: Preprocess
+### Phase 4: Evaluate preprocess cycle
 - Remove idle states
 - Downsampling

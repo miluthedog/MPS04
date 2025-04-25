@@ -9,4 +9,4 @@
 ### Raw data
 - raw: raw data
 - cyc: invidual cycle
-- (nothing): remove idle
+- rmi: remove idle
