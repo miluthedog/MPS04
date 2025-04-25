@@ -10,3 +10,6 @@
 ### Error
 - E1: vertical axis vibration
 - E2: horizontal axis vibration
+
+# Handle error data:
+rawwww2 first peak is fault: cycle no longer than 600000 signal
