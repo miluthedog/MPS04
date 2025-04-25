@@ -5,11 +5,13 @@ from scipy.signal import find_peaks
 
 class Split:
     def __init__(self):
-        self.filename = "bbbb1"
+        self.filename = "data"
+        self.peakNumber = 4
+        self.labels = ["b", "b", "b", "b"]
+
         self.peakDis = 10000
         self.gripHeight = 0.2
         self.dropHeight = 0.03
-        self.peakID = 1
 
     def firstPeaks(self, signal):
         peaks, _ = find_peaks(np.abs(signal), height=self.dropHeight)
@@ -34,20 +36,24 @@ class Split:
     def splitcycle(self):
         data = pd.read_csv(f"source/data/{self.filename}.csv")
         signal = data["Amplitude"].values
+        cycles = []
 
         gripPeaks = self.lastPeaks(signal)
-        gripID = gripPeaks[self.peakID]
-        signal = signal[gripID:]
+        for peak in range(self.peakNumber):
+            gripID = gripPeaks[peak]
+            cycleSignal = signal[gripID:]
 
-        dropPeaks = self.firstPeaks(signal)
-        for id in dropPeaks:
-            if id > 400000:
-                dropID = id
-                break
-        signal = signal[:dropID]
+            dropPeaks = self.firstPeaks(cycleSignal)
+            for id in dropPeaks:
+                if id > 400000:
+                    dropID = id
+                    break
+            cycleSignal = cycleSignal[:dropID]
+            cycles.append(cycleSignal)
 
-        dataFrame = pd.DataFrame({"Amplitude": signal})
-        dataFrame.to_csv("cycle.csv", index=False)
+        dataFrame = pd.DataFrame(cycles).transpose()
+        dataFrame.columns = self.labels
+        dataFrame.to_csv("cycles.csv", index=False)
 
 
 if __name__ == "__main__":

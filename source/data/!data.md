@@ -6,3 +6,7 @@
 ### Error
 - E1: vertical axis vibration
 - E2: horizontal axis vibration
+### Raw data
+- raw: raw data
+- cyc: invidual cycle
+- (nothing): remove idle
