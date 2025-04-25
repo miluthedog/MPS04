@@ -12,7 +12,7 @@ Cycle end: Find all isolated peaks > 0.03 (choose first point that far from its 
 
 class Split:
     def __init__(self):
-        self.filename = "data"
+        self.filename = "data.csv"
         self.peakDis = 10000
         self.gripHeight = 0.2
         self.dropHeight = 0.03
@@ -39,7 +39,7 @@ class Split:
         return np.array(selected)
 
     def splitcycle(self):
-        data = pd.read_csv(f"source/data/{self.filename}.csv")
+        data = pd.read_csv(f"source/data/{self.filename}")
         signal = data["Amplitude"].values
             # Find all cycle starts
         gripPeaks = self.lastPeaks(signal)
