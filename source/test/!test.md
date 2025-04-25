@@ -12,4 +12,5 @@
 - Acceleration created significatnly large strokes of amplitude
 => Split cycle using last 0.2 signal and first 0.05 signal
 - Vibration amplitude under a threshold but not stable (Larger for vibrate data)
-=> Remove idle states 
+
+### Phase 3: Collect cycle
