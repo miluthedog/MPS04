@@ -8,6 +8,23 @@ Vibration appear when moving
 Slightly higher amplitude when accelerate (start to move or stop moving)
 '''
 
+class Collector:
+    def __init__(self):
+        plotRange = 441000
+        self.dataFrame = np.zeros(plotRange)
+        self.plotter = LivePlot(plotRange)
+
+    def collect(self):
+        def callback(indata, frames, time, status):
+            if status:
+                print(status)
+            self.dataFrame = indata[:, 0]
+            self.plotter.update(self.dataFrame)
+
+        with sd.InputStream(samplerate=44100, blocksize=1024, channels=1, callback=callback):
+            self.plotter.start()
+            sd.sleep(100)
+
 class LivePlot:
     def __init__(self, plotRange):
         self.data = np.zeros(plotRange)
@@ -30,23 +47,5 @@ class LivePlot:
         plt.show()
 
 
-class Collector:
-    def __init__(self, plotRange=441000):
-        self.dataFrame = np.zeros(plotRange)
-        self.plotter = LivePlot(plotRange)
-
-    def collect(self):
-        def callback(indata, frames, time, status):
-            if status:
-                print(status)
-            self.dataFrame = indata[:, 0]
-            self.plotter.update(self.dataFrame)
-
-        with sd.InputStream(samplerate=44100, blocksize=1024, channels=1, callback=callback):
-            self.plotter.start()
-            sd.sleep(100)
-
-
 if __name__ == "__main__":
-    data = Collector(plotRange=441000)
-    data.collect()
+    Collector().collect()

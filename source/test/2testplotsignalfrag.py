@@ -13,10 +13,11 @@ Idle state amplitude < 0.00025 (If not apply vibration)
 
 class Plot:
     def __init__(self):
-        pass
+        self.filename = "data"
+        self.plotRange = [(0, 1_000_000), (50_000, 150_000), (150_000, 500_000), (500_000, 600_000)]
 
-    def plot4(self, filename, plotRange):
-        data = pd.read_csv(f"source/data/{filename}.csv")
+    def plot4(self):
+        data = pd.read_csv(f"source/data/{self.filename}.csv")
         signal = data["Amplitude"].values
 
         peaks, _ = find_peaks(signal, height=0.1)
@@ -27,7 +28,7 @@ class Plot:
         axes = axes.flatten()
 
         for i in range(4):
-            start, end = plotRange[i]
+            start, end = self.plotRange[i]
             axes[i].plot(signal[start:end])
             if i == 0:
                 axes[i].set_ylim(-0.05, 0.05)
@@ -44,6 +45,4 @@ class Plot:
 
 
 if __name__ == "__main__":
-    filename = "data"
-    plotRange = [(0, 1_000_000), (50_000, 150_000), (150_000, 500_000), (500_000, 600_000)]
-    Plot().plot4(filename, plotRange)
+    Plot().plot4()

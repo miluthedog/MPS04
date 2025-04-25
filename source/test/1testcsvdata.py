@@ -8,8 +8,8 @@ No data loss
 '''
 
 class CollectorCSV:
-    def __init__(self, filename = "Untitiled"):
-        self.filename = f"{filename}.csv"
+    def __init__(self):
+        self.filename = "data.csv"
         self.data = []
 
     def collect(self):
@@ -30,5 +30,5 @@ class CollectorCSV:
 
 
 if __name__ == "__main__":
-    data = CollectorCSV("sample")
-    data.collect()
+    CollectorCSV().collect()
+
