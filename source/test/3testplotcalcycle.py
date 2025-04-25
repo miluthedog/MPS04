@@ -4,15 +4,19 @@ from scipy.signal import find_peaks
 import matplotlib.pyplot as plt
 
 '''
+Workflow:
+Cycle start: Find all isolated peaks > 0.2 (choose last point)
+Choose cycle with ID
+Cycle end: Find all isolated peaks > 0.03 (choose first point that far from its start)
 '''
 
 class Split:
     def __init__(self):
-        self.filename = "bbbb1"
+        self.filename = "data"
         self.peakDis = 10000
         self.gripHeight = 0.2
         self.dropHeight = 0.03
-        self.peakID = 1
+        self.peakID = 0
 
     def firstPeaks(self, signal): # return all isolated first peaks
         peaks, _ = find_peaks(np.abs(signal), height=self.dropHeight)
@@ -48,11 +52,11 @@ class Split:
             if id > 400000:
                 dropID = id
                 break
-
         signal = signal[:dropID]
+        print(f"Cycle length: {dropID}")
 
         plt.plot(signal)
-        plt.ylim(-0.2, 0.2)
+        plt.ylim(-0.1, 0.1)
         plt.axhline(y=self.gripHeight, color='r', alpha=0.3)
         plt.axhline(y=-self.gripHeight, color='r', alpha=0.3)
         plt.axhline(y=self.dropHeight, color='r', linestyle="--", alpha=0.3)
