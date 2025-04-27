@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 class Plot:
     def __init__(self):
-        self.filename = "data.csv"
+        self.filename = "cycwwww1.csv"
 
     def plot4(self):
         data = pd.read_csv(f"source/data/{self.filename}")
@@ -13,6 +13,7 @@ class Plot:
         axes = axes.flatten()
 
         for i in range(4):
+            print (f"Cycle {i+1}: {len(data[data.columns[i]].dropna())}")
             axes[i].plot(data[data.columns[i]])
             axes[i].set_title(f"Cycle: {data.columns[i]}")
             axes[i].set_ylim(-0.1, 0.1)
