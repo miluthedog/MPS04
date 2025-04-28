@@ -31,4 +31,3 @@ class CollectorCSV:
 
 if __name__ == "__main__":
     CollectorCSV().collect()
-
