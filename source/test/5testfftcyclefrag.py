@@ -11,15 +11,14 @@ white right motion 180000-490000
 
 class FFT:
     def __init__(self):
-        self.filename = "cycbbbb1.csv"
+        self.filename = "cycbbbb2.csv"
         #self.range = (150_000,180_000)
-        self.range = (0,10_000)
-        #self.range = (180_000, 410_000)
+        #self.range = (0,300_000)
+        self.range = (180_000, 410_000)
         #self.range = (180_000, 490_000)
-        self.cycleID = 0
+        self.cycleID = 3
 
-        self.frequency = 44100
-
+        self.frequency = 44100/10
     def fft(self, data):
         n = len(data)
         fft_result = fft(data)
@@ -39,10 +38,12 @@ class FFT:
         cycleData = data[data.columns[self.cycleID]].dropna()
 
         cycle = cycleData[self.range[0]:self.range[1]]
+        cycle = cycle[::10]
         freqs, fft_values = self.fft(cycle)
 
         plt.plot(freqs, fft_values, color='r', label="FFT")
         plt.title(f"Cycle {self.cycleID+1}: {data.columns[self.cycleID]}")
+        plt.ylim(-0.1, 0.1)
 
         plt.show()
 
