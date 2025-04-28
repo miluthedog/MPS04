@@ -5,10 +5,10 @@ from scipy.signal.windows import hann
 
 class PSDExtractor:
     def __init__(self):
-        self.filename = "cycbbbb2.csv"
+        self.filename = "cycE2wbwb1.csv"
         #self.range = (150_000,180_000)
         #self.range = (0,300_000)
-        self.range = (180_000, 410_000)
+        self.range = (200_000, 300_000)
         #self.range = (180_000, 490_000)
         self.cycleID = 3
         self.downsample_rate = 10

@@ -10,7 +10,7 @@ Slightly higher amplitude when accelerate (start to move or stop moving)
 
 class Collector:
     def __init__(self):
-        plotRange = 441000
+        plotRange = 882000
         self.dataFrame = np.zeros(plotRange)
         self.plotter = LivePlot(plotRange)
 
@@ -31,7 +31,7 @@ class LivePlot:
         self.line, = plt.plot(np.arange(plotRange), self.data)
 
         plt.xlim(0, plotRange)
-        plt.ylim(-0.5, 0.5)
+        plt.ylim(-0.2, 0.2)
 
         plt.title("Live signal")
         plt.xlabel('ID')
