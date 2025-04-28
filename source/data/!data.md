@@ -12,4 +12,5 @@
 - E2: horizontal axis vibration
 
 # Handle error data:
-rawwww2 first peak is fault: cycle no longer than 600000 signal
+wwww2 first peak is fault: cycle no longer than 600000 signal
+E2wwww1 last 2 cycle is fault: significantly fault
