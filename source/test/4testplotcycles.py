@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 class Plot:
     def __init__(self):
-        self.filename = "data.csv"
+        self.filename = "cycE2wwww1.csv"
 
     def plot4(self):
         data = pd.read_csv(f"source/data/{self.filename}")
