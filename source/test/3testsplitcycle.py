@@ -7,10 +7,10 @@ class Split:
     def __init__(self):
         self.filename = "data.csv"
         self.peakNumber = 4
-        self.labels = ["b", "b", "b", "b"]
+        self.labels = ["w", "b", "w", "b"]
 
         self.peakDis = 10000
-        self.gripHeight = 0.15
+        self.gripHeight = 0.1
         self.dropHeight = 0.03
 
     def firstPeaks(self, signal):
