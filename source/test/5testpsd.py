@@ -1,19 +1,23 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import welch, detrend
 
 '''
-Analysing signal Power Spectral Density (PSD) to find power
+Down sample (experimentally)
+Detrend
+Clip extreme value (Keep properties)
 '''
 
 class Extract:
     def __init__(self):
-        self.filename = "data.csv"
-        self.dowsamplingRate = 1
+        self.filename = "cycwwww1.csv"
+        self.dowsamplingRate = 10
 
     def preprocess(self, signal):
-        signal = detrend(signal)
         signal = signal[::self.dowsamplingRate]
+        signal = detrend(signal)
+        signal = np.clip(signal, -0.005, 0.005)
         return signal
 
     def psd(self):
