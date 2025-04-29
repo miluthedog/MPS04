@@ -13,11 +13,12 @@ class Extract:
     def __init__(self):
         self.filename = "data.csv"
         self.dowsamplingRate = 10
+        self.clip = 0.005
 
     def preprocess(self, signal):
         signal = signal[::self.dowsamplingRate]
         signal = detrend(signal)
-        signal = np.clip(signal, -0.005, 0.005)
+        signal = np.clip(signal, -self.clip, self.clip)
         return signal
 
     def psd(self):
@@ -30,10 +31,10 @@ class Extract:
             rawsignal = data[data.columns[i]].dropna()
             signal = self.preprocess(rawsignal)
             
-            f, Pxx = welch(signal, fs=44100//self.dowsamplingRate, nperseg=1024//self.dowsamplingRate)
+            f, psd = welch(signal, fs=44100//self.dowsamplingRate, nperseg=1024//self.dowsamplingRate)
 
             print(f"Cycle {i+1}: {len(signal)} data points")
-            axes[i].plot(f, Pxx)
+            axes[i].plot(f, psd)
             axes[i].set_title(f"Cycle: {data.columns[i]} - PSD")
             axes[i].set_xlabel("Frequency (Hz)")
             axes[i].set_ylabel("Power Spectral Density (PSD)")
