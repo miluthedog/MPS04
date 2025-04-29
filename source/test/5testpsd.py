@@ -11,7 +11,7 @@ Clip extreme value (Keep properties)
 
 class Extract:
     def __init__(self):
-        self.filename = "cycwwww1.csv"
+        self.filename = "data.csv"
         self.dowsamplingRate = 10
 
     def preprocess(self, signal):

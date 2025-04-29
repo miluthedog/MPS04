@@ -7,12 +7,11 @@ from scipy.signal import detrend
 
 class Extract:
     def __init__(self):
-        self.filename = "cycE2wbwb1.csv"
+        self.filename = "data.csv"
         self.downsamplingRate = 10
         self.threshold = 0.002
 
     def preprocess(self, signal):
-        signal = signal.dropna()
         signal = signal[::self.downsamplingRate]
         signal = detrend(signal)
         signal = signal[np.abs(signal) <= self.threshold]
@@ -26,7 +25,7 @@ class Extract:
         axes = axes.flatten()
 
         for i, column in enumerate(data.columns[:4]):
-            values = self.preprocess(data[column])
+            values = self.preprocess(data[column].dropna())
             print(f"Processing cycle {i+1}: {len(values)} data points")
 
             x = np.linspace(values.min(), values.max(), 1000)
@@ -52,8 +51,8 @@ class Extract:
             axes[i].set_xlabel("Value")
             axes[i].set_ylabel("Density")
 
-        results_df = pd.DataFrame(results)
-        print(results_df)
+        resultsFrame = pd.DataFrame(results)
+        print(resultsFrame)
 
         plt.tight_layout()
         plt.show()
