@@ -28,4 +28,3 @@
 ### 5. Extract and visualize features
 - PSD: Downsample, Remove DC offset, clip shock -> extract
 - Skewness-Kurtosis: Downsample, Remove DC offset, remove shock -> extract
-### 6. Test train model

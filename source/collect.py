@@ -8,6 +8,9 @@ class Collector:
         self.filename = "data.csv"
         self.data = []
 
+    def information(self):
+        print("Done collecting data")
+
     def collect(self):
 
         def callback(indata, frames, time, status):
@@ -21,9 +24,11 @@ class Collector:
                     break
                 sd.sleep(100)
 
-        dataFrame = pd.DataFrame({"Amplitude": self.data})
+        dataFrame = pd.DataFrame({"Amplitude": self.data}) 
         dataFrame.to_csv(self.filename, index=False)
+        self.information()
 
 
 if __name__ == "__main__":
     Collector().collect()
+
