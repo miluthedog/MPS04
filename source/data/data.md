@@ -1,16 +1,3 @@
-# Naming convention
-
-### Data type
-- raw: raw data
-- cyc: invidual cycle
-- rmi: remove idle
-### Workpiece
-- b: black, drop on slider
-- w: white, drop on conveyor
-### Error
-- E1: vertical axis vibration
-- E2: horizontal axis vibration
-
-# Handle error data:
+# Error dataset
 wwww2 first peak is fault: cycle no longer than 600000 signal
-E2wwww1 last 2 cycle is fault: significantly fault
+E2wwww1 last 2 cycle is fault: a lot of shocks
