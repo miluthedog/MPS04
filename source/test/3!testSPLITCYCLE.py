@@ -49,6 +49,7 @@ class Split:
                     dropID = id
                     break
             cycleSignal = cycleSignal[:dropID]
+            print(f"Cycle length: {dropID}")
             cycles.append(cycleSignal)
 
         dataFrame = pd.DataFrame(cycles).transpose()
