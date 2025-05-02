@@ -6,8 +6,9 @@ import os
 
 class FeatureSaver:
     def __init__(self):
-        self.source_file = "source/data/cycE2wwww1.csv"
-        self.save_file = "features.csv"
+        self.filename = "data.csv"
+        self.output = "features.csv"
+
         self.downsample = 10
         self.clip = 0.005
         self.label = 0
@@ -19,7 +20,7 @@ class FeatureSaver:
         return signal
 
     def extract_features(self):
-        data = pd.read_csv(self.source_file)
+        data = pd.read_csv(f"source/data/cyc/{self.filename}")
         rows = []
 
         for column in data.columns[:4]:
@@ -33,8 +34,8 @@ class FeatureSaver:
 
         if rows:
             df = pd.DataFrame(rows)
-            header = not os.path.exists(self.save_file)
-            df.to_csv(self.save_file, mode='a', header=header, index=False)
+            header = not os.path.exists(self.output)
+            df.to_csv(self.output, mode='a', header=header, index=False)
 
 if __name__ == "__main__":
     FeatureSaver().extract_features()

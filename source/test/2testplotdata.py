@@ -15,7 +15,7 @@ class Plot:
         self.filename = "data.csv"
 
     def plotdata(self):
-        data = pd.read_csv(f"source/data/{self.filename}")
+        data = pd.read_csv(f"source/data/raw/{self.filename}")
         plt.plot(data)
         plt.ylim(-0.2, 0.2)
 

@@ -39,7 +39,7 @@ class Split:
         return np.array(selected)
 
     def splitcycle(self):
-        data = pd.read_csv(f"source/data/{self.filename}")
+        data = pd.read_csv(f"source/data/raw/{self.filename}")
         signal = data["Amplitude"].values
             # Find all cycle starts
         gripPeaks = self.lastPeaks(signal)

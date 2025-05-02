@@ -29,7 +29,7 @@ model = tf.keras.Model(inputs=[input_vector, input_ks], outputs=out)
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 # Train the model
-model.fit([Xv_train, Xks_train], y_train, epochs=100, batch_size=32, validation_data=([Xv_test, Xks_test], y_test))
+model.fit([Xv_train, Xks_train], y_train, epochs=1000, batch_size=32, validation_data=([Xv_test, Xks_test], y_test))
 
 # Evaluate the model
 loss, acc = model.evaluate([Xv_test, Xks_test], y_test)
@@ -51,3 +51,5 @@ for i in range(batch_size):
     pred_score = preds[i, 0]
     pred_label = int(pred_score > 0.5)  # Convert score to label (0 or 1)
     print(f"True Label: {true_label}, Predicted Score: {pred_score:.4f} -> Predicted Label: {pred_label}")
+
+model.save("test1.keras")

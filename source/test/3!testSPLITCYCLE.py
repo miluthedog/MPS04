@@ -7,7 +7,7 @@ class Split:
     def __init__(self):
         self.filename = "data.csv"
         self.peakNumber = 4
-        self.labels = ["w", "b", "w", "b"]
+        self.labels = ["b", "w", "b", "w"]
 
         self.peakDis = 10000
         self.gripHeight = 0.1
@@ -34,7 +34,7 @@ class Split:
         return np.array(selected)
 
     def splitcycle(self):
-        data = pd.read_csv(f"source/data/{self.filename}")
+        data = pd.read_csv(f"source/data/raw/{self.filename}")
         signal = data["Amplitude"].values
         cycles = []
 

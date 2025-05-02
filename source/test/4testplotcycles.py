@@ -7,7 +7,7 @@ class Plot:
         self.filename = "data.csv"
 
     def plot4(self):
-        data = pd.read_csv(f"source/data/{self.filename}")
+        data = pd.read_csv(f"source/data/cyc/{self.filename}")
 
         _, axes = plt.subplots(2, 2)
         axes = axes.flatten()

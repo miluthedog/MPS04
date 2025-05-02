@@ -17,7 +17,7 @@ class Plot:
         self.plotRange = [(0, 1_000_000), (50_000, 150_000), (150_000, 500_000), (500_000, 600_000)]
 
     def plot4(self):
-        data = pd.read_csv(f"source/data/{self.filename}")
+        data = pd.read_csv(f"source/data/raw/{self.filename}")
         signal = data["Amplitude"].values
 
         peaks, _ = find_peaks(signal, height=0.1)

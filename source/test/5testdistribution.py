@@ -18,7 +18,7 @@ class Extract:
         return signal
 
     def distributions(self):
-        data = pd.read_csv(f"source/data/{self.filename}")
+        data = pd.read_csv(f"source/data/cyc/{self.filename}")
         results = []
 
         _, axes = plt.subplots(2, 2)

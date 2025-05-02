@@ -11,7 +11,7 @@ class Plot:
         self.filename = "data.csv"
 
     def plot4(self):
-        data = pd.read_csv(f"source/data/{self.filename}")
+        data = pd.read_csv(f"source/data/cyc/{self.filename}")
 
         for i in range(4):
             plt.plot(data[data.columns[i]])
