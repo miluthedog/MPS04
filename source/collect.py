@@ -1,6 +1,9 @@
 import sounddevice as sd
 import pandas as pd
+import numpy as np
 import keyboard
+import matplotlib.pyplot as plt
+from scipy.signal import find_peaks
 
 
 class Collector:
@@ -8,11 +11,51 @@ class Collector:
         self.filename = "data.csv"
         self.data = []
 
+        self.peakNumber = 4
+
+    def peaks(self, threshold):
+        peaks, _ = find_peaks(np.abs(self.data), height=threshold)
+
+        selected = [peaks[0]]
+        for p in peaks[1:]:
+            if p - selected[-1] > 10000:
+                selected.append(p)
+        return np.array(selected)
+
     def information(self):
-        print("Done collecting data")
+        print(f"Done collecting. Data length: {len(self.data)}")
+
+        peaks10 = self.peaks(0.1)
+        peaks15 = self.peaks(0.15)
+        peaks20 = self.peaks(0.2)
+        print(f"0.1 peaks: {peaks10}, 0.15 peaks: {peaks15}, 0.2 peaks: {peaks20}")
+
+        for peak in [peaks10, peaks15, peaks20]:
+            if len(peak) == self.peakNumber:
+                selectedPeaks = peak
+                break
+        print(f"selected peaks: {selectedPeaks}")
+
+        _, axes = plt.subplots(2, 2)
+        axes = axes.flatten()
+        for index in range(self.peakNumber):
+            startID = selectedPeaks[index]
+            cycleSignal = self.data[startID:]
+    
+            endIDs = self.peaks(0.03)
+            for id in endIDs:
+                if id > 400000:
+                    endID = id
+                    break
+            cycleSignal = cycleSignal[:endID]
+            axes[index].plot(cycleSignal)
+            axes[index].set_title(f"Cycle {index+1}")
+            axes[index].set_ylim(-0.1, 0.1)
+            print(f"Cycle {index+1} length: {endID}")
+        plt.tight_layout()
+        plt.show()
 
     def collect(self):
-
         def callback(indata, frames, time, status):
             if status:
                 print(status)
