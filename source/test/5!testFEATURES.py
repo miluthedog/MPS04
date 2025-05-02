@@ -6,17 +6,23 @@ import os
 
 class FeatureSaver:
     def __init__(self):
-        self.filename = "data.csv"
+        self.filename = "E1bwbw1.csv"
         self.output = "features.csv"
 
         self.downsample = 10
-        self.clip = 0.005
+        self.threshold = 0.002
         self.label = 0
 
-    def preprocess(self, signal):
+    def preprocessClip(self, signal):
         signal = signal[::self.downsample]
         signal = detrend(signal)
-        signal = np.clip(signal, -self.clip, self.clip)
+        signal = np.clip(signal, -self.threshold, self.threshold)
+        return signal
+    
+    def preprocessRemove(self, signal):
+        signal = signal[::self.downsample]
+        signal = detrend(signal)
+        signal = signal[np.abs(signal) <= self.threshold]
         return signal
 
     def extract_features(self):
@@ -25,17 +31,17 @@ class FeatureSaver:
 
         for column in data.columns[:4]:
             raw = data[column].dropna().values
-            signal = self.preprocess(raw)
+            signal = self.preprocessClip(raw)
 
             _, psd = welch(signal, fs=44100//self.downsample, nperseg=1024//self.downsample)
+            row = [self.label, kurtosis(self.preprocessRemove(signal)), skew(self.preprocessRemove(signal))] + psd.tolist()
 
-            row = [self.label, kurtosis(signal), skew(signal)] + psd.tolist()
             rows.append(row)
 
         if rows:
-            df = pd.DataFrame(rows)
+            dataFrame = pd.DataFrame(rows)
             header = not os.path.exists(self.output)
-            df.to_csv(self.output, mode='a', header=header, index=False)
+            dataFrame.to_csv(self.output, mode='a', header=header, index=False)
 
 if __name__ == "__main__":
     FeatureSaver().extract_features()

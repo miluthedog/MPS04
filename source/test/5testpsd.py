@@ -13,7 +13,7 @@ class Extract:
     def __init__(self):
         self.filename = "data.csv"
         self.dowsamplingRate = 10
-        self.clip = 0.005
+        self.clip = 0.002
 
     def preprocess(self, signal):
         signal = signal[::self.dowsamplingRate]
