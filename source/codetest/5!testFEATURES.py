@@ -7,7 +7,7 @@ import os
 
 class FeatureSaver:
     def __init__(self):
-        self.filename = "E1bwbw1.csv"
+        self.filename = "data.csv"
         self.output = "features.csv"
 
         self.downsample = 10
