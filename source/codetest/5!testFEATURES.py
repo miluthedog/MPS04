@@ -4,6 +4,7 @@ from scipy.signal import welch, detrend
 from scipy.stats import skew, kurtosis
 import os
 
+
 class FeatureSaver:
     def __init__(self):
         self.filename = "E1bwbw1.csv"
