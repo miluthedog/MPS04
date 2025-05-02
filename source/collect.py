@@ -6,12 +6,12 @@ import matplotlib.pyplot as plt
 from scipy.signal import find_peaks
 
 
-class Collector:
+class Collector: # Collect and display data information
     def __init__(self):
+        self.peakNumber = 4
+
         self.filename = "data.csv"
         self.data = []
-
-        self.peakNumber = 4
 
     def peaks(self, threshold): # Detect isolated peaks
         peaks, _ = find_peaks(np.abs(self.data), height=threshold)
