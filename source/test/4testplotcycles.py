@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 class Plot:
     def __init__(self):
-        self.filename = "cycles.csv"
+        self.filename = "data.csv"
 
     def plot4(self):
         data = pd.read_csv(f"source/data/cyc/{self.filename}")
