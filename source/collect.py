@@ -13,7 +13,7 @@ class Collector:
 
         self.peakNumber = 4
 
-    def peaks(self, threshold):
+    def peaks(self, threshold): # Detect isolated peaks
         peaks, _ = find_peaks(np.abs(self.data), height=threshold)
 
         selected = [peaks[0]]
@@ -22,20 +22,22 @@ class Collector:
                 selected.append(p)
         return np.array(selected)
 
-    def information(self):
+    def information(self): # Display data informations
+            # Data analysis
         print(f"Done collecting. Data length: {len(self.data)}")
-
+        print(f"Min: {min(self.data)}, Max: {max(self.data)}, Mean: {np.mean(self.data)}")
+            # Peaks analysis
         peaks10 = self.peaks(0.1)
         peaks15 = self.peaks(0.15)
         peaks20 = self.peaks(0.2)
         print(f"0.1 peaks: {peaks10}, 0.15 peaks: {peaks15}, 0.2 peaks: {peaks20}")
-
+        
         for peak in [peaks10, peaks15, peaks20]:
             if len(peak) == self.peakNumber:
                 selectedPeaks = peak
                 break
         print(f"selected peaks: {selectedPeaks}")
-
+            # Cycles analysis
         _, axes = plt.subplots(2, 2)
         axes = axes.flatten()
         for index in range(self.peakNumber):
@@ -55,7 +57,7 @@ class Collector:
         plt.tight_layout()
         plt.show()
 
-    def collect(self):
+    def collect(self): # Collect data
         def callback(indata, frames, time, status):
             if status:
                 print(status)
@@ -69,6 +71,7 @@ class Collector:
 
         dataFrame = pd.DataFrame({"Amplitude": self.data}) 
         dataFrame.to_csv(self.filename, index=False)
+
         self.information()
 
 
