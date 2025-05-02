@@ -21,7 +21,7 @@
 - Collect to CSV file
 ### 2. Visualize data
 ### 3. Split data -> cycle
-- Start (grip): 0.1
+- Start (grip): 0.15
 - Stop (drop): 0.03
 - Length: black ~480k, white ~590k
 ### 4. Visualize cycle

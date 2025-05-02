@@ -10,7 +10,7 @@ class Split:
         self.labels = ["b", "w", "b", "w"]
 
         self.peakDis = 10000
-        self.gripHeight = 0.1
+        self.gripHeight = 0.15
         self.dropHeight = 0.03
 
     def firstPeaks(self, signal):
