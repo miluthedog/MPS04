@@ -1,10 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-'''
-Operating state lengths seem equal
-Idle state lengths not equal
-'''
 
 class Plot:
     def __init__(self):

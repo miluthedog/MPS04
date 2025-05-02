@@ -7,8 +7,6 @@ Average cycle length ~13 sec (600000 signal at 44100 Hz)
 50000-150000: Go up
 150000-500000: Go right
 500000-600000: Go down
-
-Idle state amplitude < 0.00025 (If not apply vibration)
 '''
 
 class Plot:

@@ -3,12 +3,6 @@ import numpy as np
 from scipy.signal import find_peaks
 import matplotlib.pyplot as plt
 
-'''
-Workflow:
-Cycle start: Find all isolated peaks > 0.15 (choose last point)
-Choose cycle with ID
-Cycle end: Find all isolated peaks > 0.03 (choose first point that far from its start)
-'''
 
 class Split:
     def __init__(self):

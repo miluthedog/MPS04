@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 from scipy.signal import welch, detrend
 
 '''
-Down sample (experimentally)
-Detrend
-Clip extreme value (Keep properties)
+Nyquist-Shannon Sampling Theorem:
+Sampling frequency must be double the system frequency
+Downsample requires low-pass filter and bandwidth limited (Unless using low frequency sensor)
 '''
 
 class Extract:

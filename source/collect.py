@@ -9,6 +9,7 @@ from scipy.signal import find_peaks
 class Collector: # Collect and display data information
     def __init__(self):
         self.peakNumber = 4
+        self.downSample = 1
 
         self.filename = "data.csv"
         self.data = []
@@ -17,9 +18,9 @@ class Collector: # Collect and display data information
         peaks, _ = find_peaks(np.abs(self.data), height=threshold)
 
         selected = [peaks[0]]
-        for p in peaks[1:]:
-            if p - selected[-1] > 10000:
-                selected.append(p)
+        for peak in peaks[1:]:
+            if (peak - selected[-1]) > (10000//self.downSample):
+                selected.append(peak)
         return np.array(selected)
 
     def information(self): # Display data informations
@@ -46,7 +47,7 @@ class Collector: # Collect and display data information
     
             endIDs = self.peaks(0.03)
             for id in endIDs:
-                if id > 400000:
+                if id > (400000//self.downSample):
                     endID = id
                     break
             cycleSignal = cycleSignal[:endID]
@@ -63,7 +64,7 @@ class Collector: # Collect and display data information
                 print(status)
             self.data.extend(indata[:, 0])
 
-        with sd.InputStream(samplerate=44100, channels=1, callback=callback):
+        with sd.InputStream(samplerate=(44100//self.downSample), channels=1, callback=callback):
             while True:
                 if keyboard.is_pressed('esc'):
                     break
