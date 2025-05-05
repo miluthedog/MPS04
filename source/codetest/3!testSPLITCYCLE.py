@@ -45,7 +45,7 @@ class Split:
 
             dropPeaks = self.firstPeaks(cycleSignal)
             for id in dropPeaks:
-                if id > 400000:
+                if id > 500000:
                     dropID = id
                     break
             cycleSignal = cycleSignal[:dropID]
