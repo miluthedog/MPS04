@@ -10,6 +10,7 @@
 ### Error
 - E1: vertical axis vibration
 - E2: horizontal axis vibration
+- E3: lossen bolt
 
 ## Model
 ### Model type
