@@ -1,6 +1,5 @@
 # Review: Monitoring Pneumatic Actuators' Behavior Using Real-World Data Set
 - Tibor Kovac & Andrea Ko
-- Note: split cycles, clustering, asembled clustering, monitoring
 
 ### Abstract
 - Preprocessing: Peak detection, remove ideling states, down-sampling
@@ -27,12 +26,6 @@
 - Hybrid methods: unsupervised learning as data preprocessing for supervised learning
 - Supervised learning fits well, Unsupervised learning goal is to discover unknown classes of items by clustering
 - Imbalance class distribution: where significantly more intances from one class, lead to misclassify instances of less represented
-
-![Process Flow](images/KovacKoProcessFlow.png)
-
-- Data process flow, with used methodology
-
-![Clusters](images/KovacKoClusters.png)
 
 - KSOM used to monitoring (Clustering make monitoring easier)
 
