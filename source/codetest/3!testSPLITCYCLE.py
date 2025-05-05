@@ -7,7 +7,7 @@ class Split:
     def __init__(self):
         self.filename = "data.csv"
         self.peakNumber = 4
-        self.labels = ["b", "w", "b", "w"] # Cycle label
+        self.labels = ["w", "w", "w", "w"] # Cycle label
 
         self.peakDis = 10000
         self.gripHeight = 0.15
