@@ -10,7 +10,7 @@ class FeatureSaver:
         self.filename = "data.csv"
         self.output = "features.csv"
 
-        self.downsample = 10
+        self.downsample = 20
         self.threshold = 0.002
         self.label = 0
 
