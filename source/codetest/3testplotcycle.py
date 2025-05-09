@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 class Split:
     def __init__(self):
-        self.filename = "data.csv"
+        self.filename = "data"
         self.peakDis = 10000
         self.gripHeight = 0.15
         self.dropHeight = 0.03
@@ -33,7 +33,7 @@ class Split:
         return np.array(selected)
 
     def splitcycle(self):
-        data = pd.read_csv(f"source/data/raw/{self.filename}")
+        data = pd.read_csv(f"source/data/raw/{self.filename}.csv")
         signal = data["Amplitude"].values
             # Find all cycle starts
         gripPeaks = self.lastPeaks(signal)

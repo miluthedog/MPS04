@@ -5,7 +5,7 @@ from scipy.signal import find_peaks
 
 class Split:
     def __init__(self):
-        self.filename = "data.csv"
+        self.filename = "data"
         self.peakNumber = 4
         self.labels = ["w", "w", "w", "w"] # Cycle label
 
@@ -34,7 +34,7 @@ class Split:
         return np.array(selected)
 
     def splitcycle(self):
-        data = pd.read_csv(f"source/data/raw/{self.filename}")
+        data = pd.read_csv(f"source/data/raw/{self.filename}.csv")
         signal = data["Amplitude"].values
         cycles = []
 

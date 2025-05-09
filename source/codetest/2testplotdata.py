@@ -12,10 +12,10 @@ Others are noised
 
 class Plot:
     def __init__(self):
-        self.filename = "data.csv"
+        self.filename = "data"
 
     def plotdata(self):
-        data = pd.read_csv(f"source/data/raw/{self.filename}")
+        data = pd.read_csv(f"source/data/raw/{self.filename}.csv")
         plt.plot(data)
         plt.ylim(-0.2, 0.2)
 

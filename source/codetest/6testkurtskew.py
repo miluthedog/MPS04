@@ -4,6 +4,11 @@ import numpy as np
 import glob
 import os
 
+
+class Distribution:
+    def __init__(self):
+        self.filenames = ["horiBolt", "normal", "rotateBolt", "vertiBolt"]
+
 # === Config ===
 folder_path = 'source/data/AIfeatures'
 csv_files = sorted(glob.glob(os.path.join(folder_path, '*.csv')))
@@ -29,9 +34,8 @@ for file in csv_files:
 x_pos = np.arange(len(results))
 
 # Plot individual values (hollow dots)
-#for i, r in enumerate(results):
-#    plt.plot([i]*len(r['values']), r['values'], 'o',
-#             markerfacecolor='none', markeredgecolor='blue', alpha=0.6)
+for i, r in enumerate(results):
+    plt.plot([i]*len(r['values']), r['values'], 'o', markerfacecolor='none', markeredgecolor='blue', alpha=0.6)
 
 # Plot error bars (mean ± std)
 means = [r['mean'] for r in results]

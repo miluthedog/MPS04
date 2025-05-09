@@ -7,7 +7,7 @@ import os
 
 class FeatureSaver:
     def __init__(self):
-        self.filename = "data.csv"
+        self.filename = "data"
         self.output = "features.csv"
 
         self.downsample = 20
@@ -27,7 +27,7 @@ class FeatureSaver:
         return signal
 
     def extract_features(self):
-        data = pd.read_csv(f"source/data/cyc/{self.filename}")
+        data = pd.read_csv(f"source/data/cyc/{self.filename}.csv")
         rows = []
 
         for column in data.columns[:4]:

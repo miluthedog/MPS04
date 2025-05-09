@@ -11,11 +11,11 @@ Average cycle length ~13 sec (600000 signal at 44100 Hz)
 
 class Plot:
     def __init__(self):
-        self.filename = "data.csv"
+        self.filename = "data"
         self.plotRange = [(0, 1_000_000), (50_000, 150_000), (150_000, 500_000), (500_000, 600_000)]
 
     def plot4(self):
-        data = pd.read_csv(f"source/data/raw/{self.filename}")
+        data = pd.read_csv(f"source/data/raw/{self.filename}.csv")
         signal = data["Amplitude"].values
 
         peaks, _ = find_peaks(signal, height=0.1)

@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 
 class Plot:
     def __init__(self):
-        self.filename = "data.csv"
+        self.filename = "data"
 
     def plot4(self):
-        data = pd.read_csv(f"source/data/cyc/{self.filename}")
+        data = pd.read_csv(f"source/data/cyc/{self.filename}.csv")
 
         for i in range(4):
             plt.plot(data[data.columns[i]])

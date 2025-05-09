@@ -15,7 +15,7 @@ low pass filter: remove fold-back signal (more clear without clip)
 
 class Extract:
     def __init__(self):
-        self.filename = "data.csv"
+        self.filename = "data"
         self.downSamplingRate = 20
         self.downSamplingRateCompare = 20
         self.threshold = 0.005
@@ -40,7 +40,7 @@ class Extract:
         return signal
 
     def psd(self):
-        data = pd.read_csv(f"source/data/cyc/{self.filename}")
+        data = pd.read_csv(f"source/data/cyc/{self.filename}.csv")
 
         _, axes = plt.subplots(2, 2)
         axes = axes.flatten()

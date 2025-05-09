@@ -7,7 +7,7 @@ from scipy.signal import detrend
 
 class Extract:
     def __init__(self):
-        self.filename = "data.csv"
+        self.filename = "data"
         self.downsamplingRate = 10
         self.threshold = 0.002
 
@@ -18,7 +18,7 @@ class Extract:
         return signal
 
     def distributions(self):
-        data = pd.read_csv(f"source/data/cyc/{self.filename}")
+        data = pd.read_csv(f"source/data/cyc/{self.filename}.csv")
         results = []
 
         _, axes = plt.subplots(2, 2)
