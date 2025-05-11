@@ -10,7 +10,7 @@ class Distribution:
         self.filenames = ["horiBolt", "normal", "rotateBolt", "vertiBolt"]
         self.col = "Kurtosis"
         #self.col = "Skewness"
-    
+
     def cal(self):
         results = []
         for i, filename in enumerate(self.filenames):
@@ -25,7 +25,7 @@ class Distribution:
                 'std': std,
                 'values': values})
         return results
-        
+
     def plot(self):
         data = self.cal()
 
