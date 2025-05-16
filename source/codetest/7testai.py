@@ -13,10 +13,6 @@ sk_features = df[['Kurtosis', 'Skewness']].values
 psd_columns = [str(i) for i in range(1, 27)]
 psd_features = df[psd_columns].values
 
-# Normalize using StandardScaler (fit on training data ideally, but here just transform)
-psd_features = StandardScaler().fit_transform(psd_features)
-sk_features = StandardScaler().fit_transform(sk_features)
-
 # Combine features
 X = np.hstack((psd_features, sk_features))
 

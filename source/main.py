@@ -6,6 +6,7 @@ import matplotlib.animation as animation
 import keyboard
 from scipy.signal import find_peaks, welch, detrend
 from scipy.stats import skew, kurtosis
+import tensorflow as tf
 import os
 
 
@@ -38,6 +39,7 @@ class Collector:
 
 class Processsor:
     def __init__(self):
+        self.model = tf.keras.models.load_model("model.keras")
         self.cycle = []
         self.lastPrediction = 0
 
@@ -56,7 +58,8 @@ class Processsor:
             peaks = self.peaks(signal, self.gripHeight)
             if len(peaks) > 0:
                 self.cycle = signal[peaks[-1]:]
-            print("Cycle start")
+                print("Cycle start")
+            self.cycle = np.append(self.cycle, signal)
             # Encounter nothing/length in collect zone
         elif len(self.cycle) < 580000:
             self.cycle = np.append(self.cycle, signal)
@@ -91,14 +94,21 @@ class Processsor:
         print(row)
 
     def prediction(self, data):
-        prediction = 123
+        sk = np.array(data[:2]).reshape(1, -1)
+        psd = np.array(data[2:]).reshape(1, -1)
 
+        X = np.hstack((psd, sk))
+
+        prediction = int((self.model.predict(X, verbose=0) > 0.5).astype(int)[0][0])
         self.lastPrediction = prediction
+
         if prediction == 0:
             print("Normal states")
         elif prediction == 1:
-            print("Error: abnormal states")
-            Message().send()
+            print("Abnormal states")
+            if self.lastPrediction == 1:
+                print("Error detected, sending message...")
+                Message().send()
 
 
 class Message:
@@ -106,7 +116,7 @@ class Message:
         pass
 
     def send(self):
-        pass
+        print("Hey engineers, machine need maintainance!")
 
 
 class LivePlot:

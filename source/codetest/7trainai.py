@@ -19,11 +19,7 @@ try:
     psd_columns = [str(i) for i in range(1, 27)]
     psd_features = df[psd_columns].values
     
-    # Normalize PSD and sk_features
-    psd_features = StandardScaler().fit_transform(psd_features)
-    sk_features = StandardScaler().fit_transform(sk_features)
-    
-    # Combine normalized PSD and sk_features
+    # Combine PSD and sk_features
     X = np.hstack((psd_features, sk_features))
     
     # Split data
