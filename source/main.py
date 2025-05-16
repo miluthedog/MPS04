@@ -53,18 +53,20 @@ class Processsor:
         return np.array(peaks)
 
     def updateCycle(self, signal):
-            # Encounter start signal, length in start zone
         if len(self.cycle) < 10000:
             peaks = self.peaks(signal, self.gripHeight)
             if len(peaks) > 0:
                 self.cycle = signal[peaks[-1]:]
-                print("Cycle start")
-            self.cycle = np.append(self.cycle, signal)
-            # Encounter nothing/length in collect zone
+                print(f"Cycle start, length: {len(self.cycle)}")
+            elif len(self.cycle) > 0:
+                self.cycle = np.append(self.cycle, signal)
+                print(f"Collecting, length: {len(self.cycle)}")
+
         elif len(self.cycle) < 580000:
             self.cycle = np.append(self.cycle, signal)
-            # Encounter stop signal, length in stop zone
-        elif len(self.cycle) < 700000:
+            print(f"Collecting, length: {len(self.cycle)}")
+
+        elif len(self.cycle) < 620000:
             peaks = self.peaks(signal, self.dropHeight)
             if len(peaks) > 0:
                 self.cycle = signal[:peaks[0]]
@@ -72,7 +74,8 @@ class Processsor:
                 print(self.prediction(data))
                 self.cycle = []
         else:
-            print("Error: cycle not stop")
+            print(f"Error: cycle not stop, length: {len(self.cycle)}")
+            self.cycle = []
 
     def preprocessClip(self, signal):
         signal = signal[::self.downsample]
@@ -88,19 +91,27 @@ class Processsor:
   
     def calculateFeatures(self, signal):
         print("Cycle stop, calculating features...")
+        
+        signal = self.preprocessClip(signal)
+        _, psd = welch(signal, fs=44100//self.downsample, nperseg=1024//self.downsample)
 
-        _, psd = welch(signal, fs=44100, nperseg=1024)
-        row = [kurtosis(signal), skew(signal)] + psd.tolist()
+        psd_list = psd.tolist()
+        if len(psd_list) < 26:
+            psd_list += [0.0] * (26 - len(psd_list))
+        else:
+            psd_list = psd_list[:26]
+
+        row = [kurtosis(self.preprocessRemove(signal)), skew(self.preprocessRemove(signal))] + psd.tolist()
         print(row)
+        return row
 
     def prediction(self, data):
         sk = np.array(data[:2]).reshape(1, -1)
-        psd = np.array(data[2:]).reshape(1, -1)
+        psd = np.array(data[2:30]).reshape(1, -1)
 
         X = np.hstack((psd, sk))
 
         prediction = int((self.model.predict(X, verbose=0) > 0.5).astype(int)[0][0])
-        self.lastPrediction = prediction
 
         if prediction == 0:
             print("Normal states")
@@ -109,6 +120,8 @@ class Processsor:
             if self.lastPrediction == 1:
                 print("Error detected, sending message...")
                 Message().send()
+
+        self.lastPrediction = prediction
 
 
 class Message:
