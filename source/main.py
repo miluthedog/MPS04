@@ -62,7 +62,7 @@ class Processsor:
                 self.cycle = np.append(self.cycle, signal)
                 print(f"Collecting, length: {len(self.cycle)}")
 
-        elif len(self.cycle) < 580000:
+        elif len(self.cycle) < 570000:
             self.cycle = np.append(self.cycle, signal)
             print(f"Collecting, length: {len(self.cycle)}")
 
@@ -118,7 +118,7 @@ class Processsor:
         elif prediction == 1:
             print("Abnormal states")
             if self.lastPrediction == 1:
-                print("Error detected, sending message...")
+                print("Error: bolt lossen, sending message...")
                 Message().send()
 
         self.lastPrediction = prediction
@@ -129,7 +129,7 @@ class Message:
         pass
 
     def send(self):
-        print("Hey engineers, machine need maintainance!")
+        pass
 
 
 class LivePlot:
